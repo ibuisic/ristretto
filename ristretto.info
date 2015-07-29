@@ -31,18 +31,18 @@ stylesheets[all][] = css/style.css
 ; ;; Scripts
 ; ;;;;;;;;;;;;;;;;;;;;;
 
- scripts[] = 'bootstrap/js/affix.js'
- scripts[] = 'bootstrap/js/alert.js'
- scripts[] = 'bootstrap/js/button.js'
- scripts[] = 'bootstrap/js/carousel.js'
- scripts[] = 'bootstrap/js/collapse.js'
- scripts[] = 'bootstrap/js/dropdown.js'
- scripts[] = 'bootstrap/js/modal.js'
- scripts[] = 'bootstrap/js/tooltip.js'
- scripts[] = 'bootstrap/js/popover.js'
- scripts[] = 'bootstrap/js/scrollspy.js'
- scripts[] = 'bootstrap/js/tab.js'
- scripts[] = 'bootstrap/js/transition.js'
+ scripts[] = 'scripts/affix.js'
+ scripts[] = 'scripts/alert.js'
+ scripts[] = 'scripts/button.js'
+ scripts[] = 'scripts/carousel.js'
+ scripts[] = 'scripts/collapse.js'
+ scripts[] = 'scripts/dropdown.js'
+ scripts[] = 'scripts/modal.js'
+ scripts[] = 'scripts/tooltip.js'
+ scripts[] = 'scripts/popover.js'
+ scripts[] = 'scripts/scrollspy.js'
+ scripts[] = 'scripts/tab.js'
+ scripts[] = 'scripts/transition.js'
 
 ; ; Disable BootstrapCDN if using Bootstrap source files in your sub-theme.
  settings[bootstrap_cdn] = ''
