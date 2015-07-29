@@ -62,7 +62,20 @@ module.exports = function (grunt) {
     uglify: {
         plugins: {
           files: {
-            'scripts/plugins.min.js': ['scripts/plugins/*.js']
+            'scripts/plugins.min.js': [
+                'scripts/plugins/affix.js',
+                'scripts/plugins/alert.js',
+                'scripts/plugins/button.js',
+                'scripts/plugins/carousel.js',
+                'scripts/plugins/collapse.js',
+                'scripts/plugins/dropdown.js',
+                'scripts/plugins/modal.js',
+                'scripts/plugins/tooltip.js',
+                'scripts/plugins/popover.js',
+                'scripts/plugins/scrollspy.js',
+                'scripts/plugins/tab.js',
+                'scripts/plugins/transition.js'
+            ]
         },
         options: {
           mangle: false
