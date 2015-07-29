@@ -11,30 +11,12 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
-
 
   // Define the configuration for all the tasks
   grunt.initConfig({
 
 
-    // Watches files for changes and runs tasks based on the changed files
-    watch: {
-      styles: {
-        files: ['less/{,*/}*.less'],
-        tasks: ['less'],
-        options: {
-          spawn: false,
-        },
-    },
-      graphics: {
-        files: ['./svg/files/*.svg'],
-        tasks: ['svgmin','grunticon']
-      }
-    },
-
-    // compile LESS files
+    // compile LESS files into style.css
     less: {
         development: {
             files: {
@@ -42,15 +24,6 @@ module.exports = function (grunt) {
             }
         }
     },
-
-    // Make sure code styles are up to par and there are no obvious mistakes
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-      },
-      all: ['js/{,*/}*.js']
-    },
-
 
 
 
@@ -62,59 +35,25 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          src: './css/{,*/}*.css',
+          src: './css/style.css',
         }]
       }
     },
 
 
-    // minify images
-    imagemin: {
-      dist: {
+    cssmin: {
+      target: {
         files: [{
           expand: true,
-          cwd: './images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: './images'
+          cwd: './css',
+          src: ['*.css', '!*.min.css'],
+          dest: './css',
+          ext: '.min.css'
         }]
-      },
-      pngfallbacks:{
-        files: [{
-            expand: true,
-            cwd: './svg/png',
-            src: '{,*/}*.{png,jpg,jpeg,gif}',
-            dest: './svg/png'
-         }]
-        },
-    },
-
-    // svgmin
-    svgmin: {
-        dist: {
-            files: [{
-                expand: true,
-                cwd: 'svg/files',
-                src: ['*.svg'],
-                dest: 'svg/files'
-            }]
-        }
-    },
-
-
-    //icons
-    grunticon: {
-        icons: {
-            files: [{
-                expand: true,
-                cwd: './svg/files',
-                src: ['*.svg', '*.png'],
-                dest: "svg"
-            }],
-            options: {
-                enhanceSVG: true
-            }
-        }
+      }
     }
+
+
 
 
 
@@ -122,18 +61,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask('start', [
     'less',
-    'jshint',
-    'svgmin',
-    'grunticon',
-    'watch'
   ]);
 
   grunt.registerTask('build', [
     'less',
     'autoprefixer',
-    'svgmin',
-    'grunticon',
-    'imagemin'
+    'cssmin',
   ]);
 
   grunt.registerTask('default', [
