@@ -18,6 +18,10 @@ module.exports = function (grunt) {
 
     // compile LESS files into style.css
     less: {
+        options: {
+          sourceMap: true,
+          sourceMapURL: '/css/style.css.source-map.json' // the complete url and filename put in the compiled css file
+      },
         development: {
             files: {
                 'css/style.css': ['less/style.less']
@@ -30,43 +34,62 @@ module.exports = function (grunt) {
     //Add vendor prefixed styles
     autoprefixer: {
       options: {
-        browsers: ['last 5 version', 'ie 8', 'ie 9'], // @see: https://github.com/ai/autoprefixer#browsers
+        browsers: ['last 5 version', 'ie 8', 'ie 9'] // @see: https://github.com/ai/autoprefixer#browsers
       },
       dist: {
         files: [{
           expand: true,
-          src: './css/style.css',
+          src: './css/style.css'
         }]
       }
     },
 
 
+    // Minify all CSS for production
     cssmin: {
       target: {
         files: [{
           expand: true,
           cwd: './css',
           src: ['*.css', '!*.min.css'],
-          dest: './css',
+          dest: './dist',
           ext: '.min.css'
         }]
       }
+  },
+
+    // Minify ALL js in a single file and use sourcemaps to debug
+    uglify: {
+        plugins: {
+          files: {
+            'scripts/plugins.min.js': ['scripts/plugins/*.js']
+        },
+        options: {
+          mangle: false
+        }
+      },
+        dist: {
+          files: {
+            'dist/scripts.min.js': ['scripts/plugins.min.js', 'scripts/custom.js']
+          },
+          options: {
+            sourceMap: true,
+            mangle: false
+          }
+        }
     }
-
-
-
-
 
   });
 
   grunt.registerTask('start', [
-    'less',
+    'less'
   ]);
 
   grunt.registerTask('build', [
     'less',
     'autoprefixer',
     'cssmin',
+    'uglify'
   ]);
 
   grunt.registerTask('default', [
