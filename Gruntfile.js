@@ -90,6 +90,27 @@ module.exports = function (grunt) {
             mangle: false
           }
         }
+    },
+
+    // Webfont icons
+    webfont: {
+      icons: {
+          src: 'images/glyphs/*.svg',
+          dest: 'fonts/glyphs',
+          destCss: 'less/components/',
+          options: {
+            stylesheet: 'less',
+            font: 'glyphs',
+            relativeFontPath: '../fonts/glyphs',
+            htmlDemo: false,
+            engine: 'node',
+            templateOptions: {
+                baseClass: 'glyph',
+                classPrefix: 'glyph-',
+                mixinPrefix: 'glyph-mix-'
+            }
+          }
+      }
     }
 
   });
