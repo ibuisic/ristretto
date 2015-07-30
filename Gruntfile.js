@@ -62,6 +62,7 @@ module.exports = function (grunt) {
         plugins: {
           files: {
             'scripts/plugins.min.js': [
+                'images/grunticon/grunticon.loader.js',
                 'scripts/plugins/affix.js',
                 'scripts/plugins/alert.js',
                 'scripts/plugins/button.js',
@@ -109,6 +110,50 @@ module.exports = function (grunt) {
             }
           }
       }
+  },
+
+    // minify svg files
+    svgmin: {
+    options: {
+        plugins: [
+                {
+                    removeViewBox: false
+                }, {
+                    removeUselessStrokeAndFill: false
+                }
+            ]
+        },
+        glyphs: {
+            files: [{
+                expand: true,
+                cwd: './images/glyphs',
+                src: ['*.svg'],
+                dest: './images/glyphs'
+            }]
+        },
+        grunticons: {
+            files: [{
+                expand: true,
+                cwd: './images/svg',
+                src: ['*.svg'],
+                dest: './images/svg'
+            }]
+        }
+    },
+
+    // Grunticon
+    grunticon: {
+        icons: {
+            files: [{
+                expand: true,
+                cwd: './images/svg',
+                src: ['*.svg', '*.png'],
+                dest: 'images/grunticon'
+            }],
+            options: {
+                enhanceSVG: true
+            }
+        }
     }
 
   });
@@ -122,6 +167,7 @@ module.exports = function (grunt) {
     'autoprefixer',
     'cssmin',
     'uglify',
+    'svgmin',
     'webfont'
   ]);
 
