@@ -2676,6 +2676,69 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
 }
+.views-exposed-form .views-exposed-widget {
+  float: left;
+  /* LTR */
+  padding: .5em 1em 0 0;
+  /* LTR */
+}
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 1.6em;
+}
+.views-exposed-form .form-item,
+.views-exposed-form .form-submit {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.views-exposed-form label {
+  font-weight: bold;
+}
+.views-exposed-widget {
+  margin-bottom: .5em;
+}
+.views-align-left {
+  text-align: left;
+}
+.views-align-right {
+  text-align: right;
+}
+.views-align-center {
+  text-align: center;
+}
+/* Remove the border on tbody that system puts in */
+.views-view-grid tbody {
+  border-top: none;
+}
+.view .progress-disabled {
+  float: none;
+}
+.field .field-label {
+  font-weight: bold;
+}
+.field-label-inline .field-label,
+.field-label-inline .field-items {
+  float: left;
+  /*LTR*/
+}
+form .field-multiple-table {
+  margin: 0;
+}
+form .field-multiple-table th.field-label {
+  padding-left: 0;
+  /*LTR*/
+}
+form .field-multiple-table td.field-multiple-drag {
+  width: 30px;
+  padding-right: 0;
+  /*LTR*/
+}
+form .field-multiple-table td.field-multiple-drag a.tabledrag-handle {
+  padding-right: .5em;
+  /*LTR*/
+}
+form .field-add-more-submit {
+  margin: .5em 0 0;
+}
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
@@ -2709,8 +2772,8 @@ tbody.collapse.in {
 }
 @font-face {
   font-family: "glyphs";
-  src: url("../fonts/glyphs/glyphs.eot?c6cf8e9c69470e82c3538eb08048d8b0");
-  src: url("../fonts/glyphs/glyphs.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphs/glyphs.woff?c6cf8e9c69470e82c3538eb08048d8b0") format("woff"), url("../fonts/glyphs/glyphs.ttf?c6cf8e9c69470e82c3538eb08048d8b0") format("truetype");
+  src: url("../fonts/glyphs/glyphs.eot?9565f0ecf67ac5e2bad61ac7bc37b12d");
+  src: url("../fonts/glyphs/glyphs.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphs/glyphs.woff?9565f0ecf67ac5e2bad61ac7bc37b12d") format("woff"), url("../fonts/glyphs/glyphs.ttf?9565f0ecf67ac5e2bad61ac7bc37b12d") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

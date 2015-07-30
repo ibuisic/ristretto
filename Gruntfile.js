@@ -154,12 +154,33 @@ module.exports = function (grunt) {
                 enhanceSVG: true
             }
         }
+    },
+
+    // Image minification
+    imagemin: {
+      pngfallbacks:{
+        files: [{
+            expand: true,
+            cwd: './images/grunticon',
+            src: '{,*/}*.{png,jpg,jpeg,gif}',
+            dest: './images/grunticon'
+         }]
+       },
+     rasters:{
+       files: [{
+           expand: true,
+           cwd: './images/',
+           src: '{,*/}*.{png,jpg,jpeg,gif}',
+           dest: './images/'
+        }]
+       }
     }
 
   });
 
   grunt.registerTask('start', [
-    'less'
+    'less',
+    'autoprefixer'
   ]);
 
   grunt.registerTask('build', [
@@ -168,7 +189,22 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'svgmin',
-    'webfont'
+    'webfont',
+    'grunticon',
+    'imagemin'
+  ]);
+
+  grunt.registerTask('font', [
+    'svgmin:glyphs',
+    'webfont',
+    'less',
+    'autoprefixer'
+  ]);
+
+  grunt.registerTask('vector', [
+    'svgmin:grunticons',
+    'grunticon',
+    'imagemin:pngfallbacks'
   ]);
 
   grunt.registerTask('default', [
