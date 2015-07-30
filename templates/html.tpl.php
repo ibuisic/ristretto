@@ -58,9 +58,9 @@
   <![endif]-->
   <?php print $scripts; ?>
   <script>
-      grunticon(["<?php print base_path() . path_to_theme() ?>/svg/icons.data.svg.css",
-                 "<?php print base_path() . path_to_theme() ?>/svg/icons.data.png.css",
-                 "<?php print base_path() . path_to_theme() ?>/svg/icons.fallback.css"], grunticon.svgLoadedCallback );
+      grunticon(["<?php print base_path() . path_to_theme() ?>/images/grunticon/icons.data.svg.css",
+                 "<?php print base_path() . path_to_theme() ?>/images/grunticon/icons.data.png.css",
+                 "<?php print base_path() . path_to_theme() ?>/images/grunticon/icons.fallback.css"], grunticon.svgLoadedCallback );
   </script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
