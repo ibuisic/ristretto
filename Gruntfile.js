@@ -15,6 +15,20 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+      // Watches files for changes and runs tasks based on the changed files
+      watch: {
+        styles: {
+          files: ['less/{,*/}*.less'],
+          tasks: ['less'],
+          options: {
+            spawn: false
+          }
+        },
+        icons: {
+          files: ['./images/glyphs/*.svg'],
+          tasks: ['font']
+        }
+    },
 
     // compile LESS files into style.css
     less: {
@@ -180,6 +194,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('start', [
     'less',
+    'watch',
     'autoprefixer'
   ]);
 
