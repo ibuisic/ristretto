@@ -19,8 +19,7 @@ module.exports = function (grunt) {
     // compile LESS files into style.css
     less: {
         options: {
-          sourceMap: true,
-          sourceMapURL: '/css/style.css.source-map.json' // the complete url and filename put in the compiled css file
+          sourceMap: true
       },
         development: {
             files: {
@@ -103,7 +102,6 @@ module.exports = function (grunt) {
             font: 'glyphs',
             relativeFontPath: '../fonts/glyphs',
             htmlDemo: false,
-            engine: 'node',
             templateOptions: {
                 baseClass: 'glyph',
                 classPrefix: 'glyph-',
@@ -123,7 +121,8 @@ module.exports = function (grunt) {
     'less',
     'autoprefixer',
     'cssmin',
-    'uglify'
+    'uglify',
+    'webfont'
   ]);
 
   grunt.registerTask('default', [
