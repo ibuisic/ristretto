@@ -212,8 +212,7 @@ module.exports = function (grunt) {
   grunt.registerTask('font', [
     'svgmin:glyphs',
     'webfont',
-    'less',
-    'autoprefixer'
+    'less'
   ]);
 
   grunt.registerTask('vector', [
