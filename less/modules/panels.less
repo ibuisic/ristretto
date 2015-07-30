@@ -1,0 +1,66 @@
+div.panel-pane{
+
+  div.admin-links{
+    font-size: xx-small;
+    margin-right: 1em;
+
+    li{
+      padding-bottom: 2px;
+      background: white;
+      z-index: 201;
+
+     a{
+       color: #ccc;
+     }
+    }
+
+    &:hover{
+      a{
+        color: #000;
+      }
+    }
+
+    a{
+      &:before{
+        content: "[";
+      }
+      &:after{
+        content: "]";
+      }
+    }
+  }
+  div.admin-links-hover{
+    a{
+      color: #000;
+    }
+  }
+
+  div.panel-hide{
+    display: none;
+  }
+
+  div.panel-hide-hover{
+    display: block;
+    position: absolute;
+    z-index: 200;
+    margin-top: -1.5em;
+  }
+
+  &:hover{
+    div.panel-hide{
+      display: block;
+      position: absolute;
+      z-index: 200;
+      margin-top: -1.5em;
+    }
+  }
+
+  div.node{
+    margin: 0;
+    padding: 0;
+  }
+
+  div.feed a{
+    float: right;
+  }
+}
