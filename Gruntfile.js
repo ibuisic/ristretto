@@ -165,7 +165,8 @@ module.exports = function (grunt) {
                 dest: 'images/grunticon'
             }],
             options: {
-                enhanceSVG: true
+                enhanceSVG: true,
+                cssprefix: '.svg-'
             }
         }
     },
