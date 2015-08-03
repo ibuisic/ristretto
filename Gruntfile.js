@@ -45,9 +45,11 @@ module.exports = function (grunt) {
 
 
     //Add vendor prefixed styles
-    autoprefixer: {
+    postcss: {
       options: {
-        browsers: ['last 5 version', 'ie 8', 'ie 9'] // @see: https://github.com/ai/autoprefixer#browsers
+          processors: [
+          require('autoprefixer-core')({browsers: ['last 5 version', 'ie 8', 'ie 9']})
+        ]
       },
       dist: {
         files: [{
@@ -195,13 +197,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask('start', [
     'less',
-    'watch',
-    'autoprefixer'
+    'watch'
   ]);
 
   grunt.registerTask('build', [
     'less',
-    'autoprefixer',
+    'postcss',
     'cssmin',
     'uglify',
     'svgmin',
